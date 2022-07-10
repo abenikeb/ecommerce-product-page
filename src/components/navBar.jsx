@@ -5,8 +5,40 @@ function NavBar(props) {
     <div>
       <div className="navbar bg-base-100">
         <div className="flex-1">
-          <a className="btn btn-ghost normal-case text-xl">Sneakers</a>
-          <ul className="menu menu-horizontal p-0">
+          <div class="md:hidden dropdown">
+            <label tabindex="0" class="btn btn-ghost btn-circle">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                class="inline-block w-5 h-5 stroke-current"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                ></path>
+              </svg>
+            </label>
+            <ul
+              tabindex="0"
+              class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+            >
+              <li>
+                <a>Homepage</a>
+              </li>
+              <li>
+                <a>About</a>
+              </li>
+            </ul>
+          </div>
+
+          <a className="btn btn-ghost normal-case text-xl font-bold">
+            Sneakers
+          </a>
+
+          <ul className="App-logo-list">
             <li>
               <a>Item 1</a>
             </li>

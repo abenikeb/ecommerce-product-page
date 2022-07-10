@@ -7,20 +7,31 @@ import "./App.css";
 class App extends Component {
   state = {
     items: getItemsById(1),
+    count: 0,
   };
 
-  // coponentDidMount() {
-  //   this.setState({ items: getItems() });
-  // }
+  handleIncrement = () => {
+    this.setState({ count: this.state.count + 1 });
+  };
+
+  handleDcrement = () => {
+    this.setState({ count: this.state.count - 1 });
+  };
 
   render() {
     console.log(this.state.items);
-    const { items } = this.state;
+    const { items, count } = this.state;
     return (
-      <div>
+      <div className="container">
         <NavBar />
+        <div class="divider"></div>
         <main>
-          <Product items={items} />
+          <Product
+            items={items}
+            count={count}
+            OnIncrement={this.handleIncrement}
+            OnDcrement={this.handleDcrement}
+          />
         </main>
       </div>
     );
