@@ -1,0 +1,163 @@
+import React, { Component } from "react";
+import { getMovies, deleteMovie } from "./services/fakeMovieService";
+import _ from "lodash";
+
+class Counter extends Component {
+  state = {
+    count: 0,
+    // movies: getMovies(),
+    counters: [
+      { id: 1, value: 4 },
+      { id: 2, value: 3 },
+      { id: 3, value: 7 },
+      { id: 4, value: 0 },
+    ],
+  };
+
+  handleIncrement = ({ id }) => {
+    this.setState({ count: this.state.count + id });
+  };
+
+  render() {
+    return (
+      <div className="p-16 bg-white w-screen h-screen">
+        {/* <span className={this.getBadge()}>{this.returnValue()}</span>
+        <button
+          onClick={() => this.handleIncrement({ id: 2 })}
+          className="btn btn-sm btn-active btn-accent"
+        >
+          Increment
+        </button> */}
+
+        {this.countMovies()}
+
+        {/* <div className="overflow-x-auto">
+          <table className="table w-full table-normal ">
+            <thead>
+              <tr>
+                <th>title</th>
+                <th>genre</th>
+                <th>numberInStock</th>
+                <th>dailyRentalRate</th>
+                <th>Date</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {this.state.movies.map((movie) => (
+                <tr key={(movie._id, movie.title)}>
+                  <td>{movie.title}</td>
+                  <td>{movie.genre.name}</td>
+                  <td>{movie.numberInStock}</td>
+                  <td>{movie.dailyRentalRate}</td>
+                  <td>{movie.publishDate}</td>
+                  <td>
+                    <button
+                      onClick={() => this.removeMovie(movie)}
+                      className="btn btn-sm btn-error"
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div> */}
+      </div>
+    );
+  }
+
+  removeMovie = (_movie) => {
+    // deleteMovie(id);
+    const movies = this.state.movies.filter(
+      (movie) => movie._id !== _movie._id
+    );
+    // movies = movies.splice(movies.indexOf(movie), 1);
+    this.setState({ movies });
+  };
+
+  countMovies() {
+    const { movies } = this.state;
+    return movies.length > 0 ? (
+      <p>There is {movies.length} Movies Found</p>
+    ) : (
+      "No movies Found"
+    );
+  }
+
+
+}
+
+export default Counter;
+
+
+
+
+
+
+
+import cx from 'classnames';
+import { Component } from 'react';
+
+export default class LikeButton extends Component {
+    state = {
+        likes:100
+            }
+
+    handleClick = () =>{
+        this.setState({likes:this.state.likes + 1})
+    }
+    render() {
+        return (
+            <>
+                <div>
+                    <button onClick={this.handleClick} className="like-button" >Like | {this.state.likes}</button>
+                </div>
+                <style>{`
+                    .like-button {
+                        font-size: 1rem;
+                        padding: 5px 10px;
+                        color:  #5068e2;
+                        border-style:solid;
+                        border-width:2.5px;
+                        border-color:#a0a0ab;
+                        width:160px;
+                        height:48px;
+                        cursor:pointer;
+                        font-weight: bold;
+                        font-family:sans-serif;
+                        font-size:23px;
+                        display:flex;
+                        justify-content:center;
+                        align-items:center;
+
+                    }
+                       .like-button:active {
+                        font-size: 1rem;
+                        padding: 5px 10px;
+                        color:  #a0a0ab;
+                        border-style:solid;
+                        border-width:2.5px;
+                        border-color:#a0a0ab;
+                        width:160px;
+                        height:48px;
+                        cursor:pointer;
+                        font-weight: normal;
+                        font-family:sans-serif;
+                        font-size:23px;
+                        display:flex;
+                        justify-content:center;
+                        align-items:center;
+
+                    }
+                   .liked {
+                        font-weight: bold;
+                        color: #1565c0;
+                   }
+                `}</style>
+            </>
+        );
+    }
+}
+
