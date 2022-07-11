@@ -2,14 +2,346 @@
   text-align: center;
 }
 
-.App-logo {
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
+} */
+
+@media only screen and (max-width: 2560px) {
+  .App-logo-list {
+    @apply menu menu-horizontal p-0;
+    /* pointer-events: none; */
+  }
+
+  .App-logo-menu {
+    display: none;
+  }
+
+  .desktop-nav {
+    @apply navbar bg-base-100;
+  }
+
+  .container {
+    padding-left: 120px;
+    padding-right: 120px;
+  }
+
+  .container .inner-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 30px 90px;
+    margin-top: 35px;
+  }
+
+  .container .product-image-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 560px;
+    flex-grow: 1;
+  }
+
+  .container .product-image-card img {
+    width: 400px;
+    border-radius: 10px;
+  }
+
+  .container .product-image-card .image-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px 22px;
+    cursor: pointer;
+    width: 80%;
+    margin: auto;
+  }
+
+  /* .container .product-image-card .image-list:active {
+    opacity: 10px;
+  } */
+
+  .container .product-image-card .image-list img {
+    width: 80px;
+    border-radius: 10px;
+  }
+
+  .container .product-image-card .image-list img:focus {
+    opacity: 0.5;
+  }
+
+  .container .product-detail {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+    flex-grow: 1;
+  }
+
+  .container .product-detail .title {
+    font-weight: 700;
+    /* font-family: Kumbh Sans; */
+    font-size: 55px;
+    line-height: 50px;
+    text-transform: capitalize;
+  }
+
+  .container .product-detail .brand-title {
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 50px;
+    text-transform: uppercase;
+    color: hsl(26, 100%, 55%);
+  }
+
+  .container .product-detail .description {
+    font-weight: 400;
+    font-family: [Kumbh Sans];
+    font-size: 16px;
+  }
+
+  .container .product-detail .price {
+    font-weight: 700;
+    font-size: 35px;
+    text-transform: capitalize;
+  }
+
+  .container .product-detail .discount-price {
+    font-weight: 400;
+    text-decoration: line-through;
+    font-size: 20px;
+    color: #565555;
+  }
+
+  .container .product-detail .price-wrap {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    /* justify-content: space-between; */
+    margin-bottom: 5px;
+  }
+
+  .container .product-detail .buttons-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px 15px;
+    width: 100%;
+  }
+
+  .button-warning {
+    @apply shadow-lg;
+    background-color: hsl(26, 100%, 55%);
+    border-radius: 5px;
+    flex-grow: 3;
+    height: 45px;
+    color: azure;
+  }
+
+  .button-increment {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #ececec;
+    border-radius: 5px;
+    flex-grow: 1;
+    height: 45px;
+    font-weight: bold;
+    font-size: 25px;
+    color: hsl(26, 100%, 55%);
+  }
+
+  .button-carousel {
+    display: none;
+  }
+
+  .counter-badge {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ececec;
+    flex-grow: 1;
+    height: 45px;
+    font-weight: 700;
+    color: hsl(30, 4%, 9%);
+  }
+
+  .button-increment-contaier {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 2;
+  }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media only screen and (max-width: 360px) {
+  .App-logo-list {
+    display: none;
+  }
+
+  .mobile-nav {
+    @apply navbar bg-base-100 mb-7;
+  }
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .mobile-menu-left {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0px 0px;
+  }
+
+  .container {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .container .inner-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    /* justify-content: center;
+    align-items: center; */
+    /* gap: 90px 30px; */
+    width: 100%;
+  }
+
+  .container .product-image-card {
+    margin-top: -80px;
+    width: 100%;
+    height: auto;
+  }
+
+  .container .product-image-card img {
+    width: 100%;
+    border-radius: 1px;
+  }
+
+  .container .product-image-card .image-list {
+    display: none;
+  }
+
+  .container .product-image-card .image-list img {
+    display: none;
+  }
+
+  .container .product-detail {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+    flex-grow: 1;
+    padding-left: 15px;
+    padding-right: 16px;
+  }
+
+  .container .product-detail .title {
+    font-weight: 700;
+    /* font-family: Kumbh Sans; */
+    font-size: 35px;
+    line-height: 30px;
+    text-transform: capitalize;
+  }
+
+  .container .product-detail .brand-title {
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 40px;
+    text-transform: uppercase;
+    color: hsl(26, 100%, 55%);
+  }
+
+  .container .product-detail .description {
+    font-weight: 400;
+    font-family: [Kumbh Sans];
+    font-size: 16px;
+  }
+
+  .container .product-detail .price {
+    font-weight: 700;
+    font-size: 35px;
+    text-transform: capitalize;
+  }
+
+  .container .product-detail .discount-price {
+    font-weight: 400;
+    text-decoration: line-through;
+    font-size: 20px;
+    color: #565555;
+  }
+
+  .container .product-detail .price-wrap {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 5px;
+  }
+
+  .container .product-detail .buttons-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px 15px;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .button-warning {
+    @apply shadow-lg;
+    display: block;
+    width: 100%;
+    background-color: hsl(26, 100%, 55%);
+    border-radius: 5px;
+    height: 45px;
+    color: azure;
+  }
+
+  .button-increment {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #ececec;
+    border-radius: 5px;
+    flex-grow: 1;
+    height: 45px;
+    font-weight: bold;
+    font-size: 25px;
+    color: hsl(26, 100%, 55%);
+  }
+
+  .button-carousel {
+    @apply absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-60;
+  }
+
+  .counter-badge {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ececec;
+    flex-grow: 1;
+    height: 45px;
+    font-weight: 700;
+    color: hsl(30, 4%, 9%);
+  }
+
+  .button-increment-contaier {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 2;
+    width: 100%;
   }
 }
 
