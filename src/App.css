@@ -12,8 +12,13 @@
     @apply menu menu-horizontal p-0;
     /* pointer-events: none; */
   }
+
   .App-logo-menu {
     display: none;
+  }
+
+  .desktop-nav {
+    @apply navbar bg-base-100;
   }
 
   .container {
@@ -36,7 +41,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* background-color: #ececec; */
     width: 100%;
     height: 560px;
     flex-grow: 1;
@@ -49,17 +53,27 @@
 
   .container .product-image-card .image-list {
     display: flex;
-    justify-content: space-between;
-    width: 66%;
+    justify-content: center;
+    gap: 20px 22px;
+    cursor: pointer;
+    width: 80%;
     margin: auto;
   }
+
+  /* .container .product-image-card .image-list:active {
+    opacity: 10px;
+  } */
 
   .container .product-image-card .image-list img {
     width: 80px;
     border-radius: 10px;
   }
 
-  .container .product-description {
+  .container .product-image-card .image-list img:focus {
+    opacity: 0.5;
+  }
+
+  .container .product-detail {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -67,7 +81,7 @@
     flex-grow: 1;
   }
 
-  .container .product-description .title {
+  .container .product-detail .title {
     font-weight: 700;
     /* font-family: Kumbh Sans; */
     font-size: 55px;
@@ -75,7 +89,7 @@
     text-transform: capitalize;
   }
 
-  .container .product-description .title-header {
+  .container .product-detail .brand-title {
     font-weight: 700;
     font-size: 15px;
     line-height: 50px;
@@ -83,24 +97,34 @@
     color: hsl(26, 100%, 55%);
   }
 
-  .container .product-description .description {
+  .container .product-detail .description {
     font-weight: 400;
     font-family: [Kumbh Sans];
     font-size: 16px;
   }
 
-  .container .product-description .price {
+  .container .product-detail .price {
     font-weight: 700;
     font-size: 35px;
     text-transform: capitalize;
   }
 
-  .container .product-description .discount-price {
+  .container .product-detail .discount-price {
     font-weight: 400;
     text-decoration: line-through;
+    font-size: 20px;
+    color: #565555;
   }
 
-  .container .product-description .buttons-container {
+  .container .product-detail .price-wrap {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    /* justify-content: space-between; */
+    margin-bottom: 5px;
+  }
+
+  .container .product-detail .buttons-container {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -115,7 +139,7 @@
     background-color: hsl(26, 100%, 55%);
     border-radius: 5px;
     flex-grow: 3;
-    height: 40px;
+    height: 45px;
     color: azure;
   }
 
@@ -127,10 +151,14 @@
     background-color: #ececec;
     border-radius: 5px;
     flex-grow: 1;
-    height: 40px;
+    height: 45px;
     font-weight: bold;
     font-size: 25px;
     color: hsl(26, 100%, 55%);
+  }
+
+  .button-carousel {
+    display: none;
   }
 
   .counter-badge {
@@ -139,7 +167,7 @@
     align-items: center;
     background-color: #ececec;
     flex-grow: 1;
-    height: 40px;
+    height: 45px;
     font-weight: 700;
     color: hsl(30, 4%, 9%);
   }
@@ -156,6 +184,22 @@
     display: none;
   }
 
+  .mobile-nav {
+    @apply navbar bg-base-100 mb-7;
+  }
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .mobile-menu-left {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0px 0px;
+  }
+
   .container {
     padding-left: 0px;
     padding-right: 0px;
@@ -165,41 +209,32 @@
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
-    gap: 90px 30px;
+    /* justify-content: center;
+    align-items: center; */
+    /* gap: 90px 30px; */
     width: 100%;
-    margin-top: 35px;
   }
 
   .container .product-image-card {
-    display: flex;
-    /* flex-direction: column;
-    justify-content: center; */
-    align-items: center;
-    /* background-color: #ececec; */
+    margin-top: -80px;
     width: 100%;
-    height: 200px;
-    flex-grow: 1;
+    height: auto;
   }
 
   .container .product-image-card img {
     width: 100%;
-    border-radius: 10px;
+    border-radius: 1px;
   }
 
   .container .product-image-card .image-list {
     display: none;
-    justify-content: space-between;
-    margin: auto;
   }
 
   .container .product-image-card .image-list img {
-    width: 80px;
-    border-radius: 10px;
+    display: none;
   }
 
-  .container .product-description {
+  .container .product-detail {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -209,7 +244,7 @@
     padding-right: 16px;
   }
 
-  .container .product-description .title {
+  .container .product-detail .title {
     font-weight: 700;
     /* font-family: Kumbh Sans; */
     font-size: 35px;
@@ -217,7 +252,7 @@
     text-transform: capitalize;
   }
 
-  .container .product-description .title-header {
+  .container .product-detail .brand-title {
     font-weight: 700;
     font-size: 15px;
     line-height: 40px;
@@ -225,24 +260,34 @@
     color: hsl(26, 100%, 55%);
   }
 
-  .container .product-description .description {
+  .container .product-detail .description {
     font-weight: 400;
     font-family: [Kumbh Sans];
     font-size: 16px;
   }
 
-  .container .product-description .price {
+  .container .product-detail .price {
     font-weight: 700;
     font-size: 35px;
     text-transform: capitalize;
   }
 
-  .container .product-description .discount-price {
+  .container .product-detail .discount-price {
     font-weight: 400;
     text-decoration: line-through;
+    font-size: 20px;
+    color: #565555;
   }
 
-  .container .product-description .buttons-container {
+  .container .product-detail .price-wrap {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 5px;
+  }
+
+  .container .product-detail .buttons-container {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -259,7 +304,7 @@
     width: 100%;
     background-color: hsl(26, 100%, 55%);
     border-radius: 5px;
-    height: 40px;
+    height: 45px;
     color: azure;
   }
 
@@ -271,10 +316,14 @@
     background-color: #ececec;
     border-radius: 5px;
     flex-grow: 1;
-    height: 40px;
+    height: 45px;
     font-weight: bold;
     font-size: 25px;
     color: hsl(26, 100%, 55%);
+  }
+
+  .button-carousel {
+    @apply absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-60;
   }
 
   .counter-badge {
@@ -283,7 +332,7 @@
     align-items: center;
     background-color: #ececec;
     flex-grow: 1;
-    height: 40px;
+    height: 45px;
     font-weight: 700;
     color: hsl(30, 4%, 9%);
   }

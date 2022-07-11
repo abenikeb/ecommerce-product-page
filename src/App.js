@@ -7,6 +7,7 @@ import "./App.css";
 class App extends Component {
   state = {
     items: getItemsById(1),
+    selectedItem: false,
     count: 0,
   };
 
@@ -18,9 +19,12 @@ class App extends Component {
     this.setState({ count: this.state.count - 1 });
   };
 
+  handleImageSelect = (itemImage) => {
+    this.setState({ selectedItem: itemImage });
+  };
+
   render() {
-    console.log(this.state.items);
-    const { items, count } = this.state;
+    const { items, count, selectedItem } = this.state;
     return (
       <div className="container">
         <NavBar />
@@ -29,8 +33,10 @@ class App extends Component {
           <Product
             items={items}
             count={count}
+            selectedItem={selectedItem}
             OnIncrement={this.handleIncrement}
             OnDcrement={this.handleDcrement}
+            onImageSelect={this.handleImageSelect}
           />
         </main>
       </div>
